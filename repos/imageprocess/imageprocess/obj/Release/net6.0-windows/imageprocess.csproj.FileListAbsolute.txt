@@ -1,0 +1,17 @@
+D:\Visual Repo\New folder\repos\imageprocess\imageprocess\bin\Release\net6.0-windows\imageprocess.exe
+D:\Visual Repo\New folder\repos\imageprocess\imageprocess\bin\Release\net6.0-windows\imageprocess.deps.json
+D:\Visual Repo\New folder\repos\imageprocess\imageprocess\bin\Release\net6.0-windows\imageprocess.runtimeconfig.json
+D:\Visual Repo\New folder\repos\imageprocess\imageprocess\bin\Release\net6.0-windows\imageprocess.dll
+D:\Visual Repo\New folder\repos\imageprocess\imageprocess\bin\Release\net6.0-windows\imageprocess.pdb
+D:\Visual Repo\New folder\repos\imageprocess\imageprocess\obj\Release\net6.0-windows\imageprocess.csproj.AssemblyReference.cache
+D:\Visual Repo\New folder\repos\imageprocess\imageprocess\obj\Release\net6.0-windows\imageprocess.Form1.resources
+D:\Visual Repo\New folder\repos\imageprocess\imageprocess\obj\Release\net6.0-windows\imageprocess.csproj.GenerateResource.cache
+D:\Visual Repo\New folder\repos\imageprocess\imageprocess\obj\Release\net6.0-windows\imageprocess.GeneratedMSBuildEditorConfig.editorconfig
+D:\Visual Repo\New folder\repos\imageprocess\imageprocess\obj\Release\net6.0-windows\imageprocess.AssemblyInfoInputs.cache
+D:\Visual Repo\New folder\repos\imageprocess\imageprocess\obj\Release\net6.0-windows\imageprocess.AssemblyInfo.cs
+D:\Visual Repo\New folder\repos\imageprocess\imageprocess\obj\Release\net6.0-windows\imageprocess.csproj.CoreCompileInputs.cache
+D:\Visual Repo\New folder\repos\imageprocess\imageprocess\obj\Release\net6.0-windows\imageprocess.dll
+D:\Visual Repo\New folder\repos\imageprocess\imageprocess\obj\Release\net6.0-windows\refint\imageprocess.dll
+D:\Visual Repo\New folder\repos\imageprocess\imageprocess\obj\Release\net6.0-windows\imageprocess.pdb
+D:\Visual Repo\New folder\repos\imageprocess\imageprocess\obj\Release\net6.0-windows\imageprocess.genruntimeconfig.cache
+D:\Visual Repo\New folder\repos\imageprocess\imageprocess\obj\Release\net6.0-windows\ref\imageprocess.dll
