@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.IO;
 using System.Text;
+
 namespace imageprocess
 {
     public partial class Form1 : Form
@@ -54,18 +55,23 @@ namespace imageprocess
         {
             try
             {
-                byte[] byt = new byte[300];
+
                 BinaryReader br = new BinaryReader(File.OpenRead(filename));
 
-                StringBuilder imgaray = new StringBuilder(); // for BLACK   (K) color
-                Double i = 0;
-                while(br.PeekChar() >=0 )
-                {
-                    Thread.Sleep(1);
 
-                    imgaray.Append(br.ReadByte());
-                    
+                byte[] byt = new byte[273936];
+                byte[] imgaray = new byte[273936];
+                
+                
+                for(int i=0; i < 273936; i++)
+                {
+                    //Thread.Sleep(1);
+
+                    imgaray[i] = br.ReadByte();
+
                 }
+                //textBox6.Text =imgaray.ToString();
+                
 
                 uint byte_per_line = (uint)(imgaray[17] << 8);
 
@@ -84,7 +90,7 @@ namespace imageprocess
 
 
                 textBox4.Text = image_width.ToString();
-                Storing_Img_Data(byte_per_line, image_height);
+                Storing_Img_Data(byte_per_line, image_height,imgaray);
                 br.Close();
             }
             catch (Exception ex)
@@ -93,56 +99,134 @@ namespace imageprocess
             }
             
         }
-
-        private void Storing_Img_Data(uint byte_per_line, uint image_height)
+        
+        private void Storing_Img_Data(uint byte_per_line, uint image_height, byte[] img_array)
         {
-            //KCMY
-            StringBuilder Color_K = new StringBuilder(); // for BLACK   (K) color
-            StringBuilder Color_C = new StringBuilder(); // for CYAN    (C) color
-            StringBuilder Color_M = new StringBuilder(); // for MAGENTA (M) color
-            StringBuilder Color_Y = new StringBuilder(); // for YELLOW  (Y) color
-            
+            MessageBox.Show("in the function");
+            int size = (int)(byte_per_line * image_height);
 
+            String[] Color_K = new String[size];
+            String[] Color_C = new String[size]; 
+            String[] Color_Y = new String[size]; 
+            String[] Color_M = new String[size]; 
 
-            
-            
-            
-            
-             
-            Double Start_Add = 336;
-            Double End_Add = 336 + byte_per_line - 1;
-            for (int x = 0; x < image_height; x++){
-                for(int i = 1; i <= 4; i++)
-                {
-                    Start_Add +=  (x * byte_per_line);
-                    End_Add +=   ((x + 1) * byte_per_line) - 1;
+            int pixel_k=0, pixel_c = 0 , pixel_y = 0, pixel_m = 0;
 
-                    for (Double y = Start_Add; y <= End_Add; y++)
-                    {
-                        switch (i)
-                        {
-                            case 1:
-                                Color_K.Append(imgaray[y]);
+            int length = Buffer.ByteLength(img_array);
 
-                                break;
-                        }
+            int Start_Add = 336;
+            int End_Add = 336 + (int)byte_per_line - 1;
+            MessageBox.Show("in the loop");
+            for(double i = 0; i < image_height; i++)
+            {
+                for (int j= 0;j < 4; j++){
+
+                    Start_Add += j * (int)byte_per_line;
+                    End_Add   += j * (int)byte_per_line - 1;
+
+                    switch (j) {
+                        case 0:
+                            for(int k = Start_Add; k <= (int)End_Add; k++)
+                            {
+                                Color_K[pixel_k] = (img_array[k]/255.0).ToString();
+                                pixel_k++;
+                            }
+                            break;
+                        case 1:
+                            for (int k = Start_Add; k <= (int)End_Add; k++)
+                            {
+                                Color_C[pixel_c] = (img_array[k] / 255.0).ToString();
+                                pixel_c++;
+                            }
+                            break;
+                        case 2:
+                            for (int k = Start_Add; k <= (int)End_Add; k++)
+                            {
+                                Color_M[pixel_m] = (img_array[k] / 255.0).ToString();
+                                pixel_m++;
+                            }
+                            break;
+                        case 3:
+                            for (int k = Start_Add; k <= (int)End_Add; k++)
+                            {
+                                Color_Y[pixel_y] = (img_array[k] / 255.0).ToString();
+                                pixel_y++;
+                            }
+                            break;
                     }
-                }
 
+                }
+            }               // End of for loop of height
+            
+            MessageBox.Show("End of Loop");
+            double[] Color_RGB = new double[size];
+            double[] Color_G = new double[size];
+            double[] Color_B = new double[size];
+
+            /*
+             R = 255 * ( 1 - C ) * ( 1 - k )
+             G = 255 * ( 1 - M ) * ( 1 - K )
+             B = 255 * ( 1 - Y ) * ( 1 - k )
+             */
+            int i = 0;
+            MessageBox.Show("Starting the conversion");
+            while(i< 3 * size)
+            {
+                float fcolor_c = (float)Convert.ToDouble(Color_C[i]);
+                float fcolor_k = (float)Convert.ToDouble(Color_K[i]);
+                float fcolor_m = (float)Convert.ToDouble(Color_M[i]);
+                float fcolor_y = (float)Convert.ToDouble(Color_Y[i]);
+
+                Color_RGB[i] = 255 * (1.0 - (fcolor_c)) * (1.0 - (fcolor_k));
+                Color_RGB[i+1] = 255 * (1.0 - (fcolor_m)) * (1.0 - (fcolor_k));
+                Color_RGB[i+2] = 255 * (1.0 - (fcolor_y)) * (1.0 - (fcolor_k));
+                i+=3;
             }
+            MessageBox.Show("R G B created");
+            Bitmap img = GetDataPicture(600,(int)image_height,Color_RGB);
+            output_image.Image = img;
         }
-        private void hexReadFile1(String filename)
+
+        public Bitmap GetDataPicture(int w, int h, double[] data)
+        {
+            Bitmap pic = new Bitmap(w, h, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+
+            for (int x = 0; x < w; x++)
+            {
+                for (int y = 0; y < h; y++)
+                {
+                    int arrayIndex = y * w + x;
+                    Color c = Color.FromArgb(
+                       (int)data[arrayIndex],
+                       (int)data[arrayIndex + 1],
+                       (int)data[arrayIndex + 2]
+                    );
+                    pic.SetPixel(x, y, c);
+                }
+            }
+
+            return pic;
+        }
+
+      
+
+
+
+
+
+
+        /*private void hexReadFile1(String filename)
         {
             try
             {
                 byte[] byt = new byte[300];
                 BinaryReader br = new BinaryReader(File.OpenRead(filename));
 
-                /*     for (int i = 0x10; i <= 0x11; i++)
+                     for (int i = 0x10; i <= 0x11; i++)
                      {
                          br.BaseStream.Position = i;
                          textBox1.Text = br.ReadByte().ToString("x2");
-                     }*/
+                     }/*
                 for (int i = 151; i < 300; i++)
                 {
                     Thread.Sleep(1);
@@ -158,20 +242,20 @@ namespace imageprocess
                 Console.WriteLine("{0} Exception caught.", ex);
             }
 
-        }
+        }*/
 
-        private void hexReadFile2(String filename)
+        /*private void hexReadFile2(String filename)
         {
             try
             {
                 byte[] byt = new byte[300];
                 BinaryReader br = new BinaryReader(File.OpenRead(filename));
 
-                /*     for (int i = 0x10; i <= 0x11; i++)
+                   for (int i = 0x10; i <= 0x11; i++)
                      {
                          br.BaseStream.Position = i;
                          textBox1.Text = br.ReadByte().ToString("x2");
-                     }*/
+                     }
                 for (int i = 301; i < 450; i++)
                 {
                     Thread.Sleep(1);
@@ -188,22 +272,6 @@ namespace imageprocess
                 Console.WriteLine("{0} Exception caught.", ex);
             }
 
-        }
-
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        }*/
     }
 }
