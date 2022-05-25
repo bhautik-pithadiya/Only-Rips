@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Visual Repo\\New folder\\repos\\imageprocess\\imageprocess\\imageprocess.csproj": {}
+    "M:\\_00_ # Projects & git\\Image Processing Mehta\\only_rips_master\\Only-Rips\\repos\\imageprocess\\imageprocess\\imageprocess.csproj": {}
   },
   "projects": {
-    "D:\\Visual Repo\\New folder\\repos\\imageprocess\\imageprocess\\imageprocess.csproj": {
+    "M:\\_00_ # Projects & git\\Image Processing Mehta\\only_rips_master\\Only-Rips\\repos\\imageprocess\\imageprocess\\imageprocess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Visual Repo\\New folder\\repos\\imageprocess\\imageprocess\\imageprocess.csproj",
+        "projectUniqueName": "M:\\_00_ # Projects & git\\Image Processing Mehta\\only_rips_master\\Only-Rips\\repos\\imageprocess\\imageprocess\\imageprocess.csproj",
         "projectName": "imageprocess",
-        "projectPath": "D:\\Visual Repo\\New folder\\repos\\imageprocess\\imageprocess\\imageprocess.csproj",
-        "packagesPath": "C:\\Users\\bhaut\\.nuget\\packages\\",
-        "outputPath": "D:\\Visual Repo\\New folder\\repos\\imageprocess\\imageprocess\\obj\\",
+        "projectPath": "M:\\_00_ # Projects & git\\Image Processing Mehta\\only_rips_master\\Only-Rips\\repos\\imageprocess\\imageprocess\\imageprocess.csproj",
+        "packagesPath": "C:\\Users\\mitul\\.nuget\\packages\\",
+        "outputPath": "M:\\_00_ # Projects & git\\Image Processing Mehta\\only_rips_master\\Only-Rips\\repos\\imageprocess\\imageprocess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\bhaut\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mitul\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

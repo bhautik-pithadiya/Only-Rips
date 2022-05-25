@@ -117,7 +117,7 @@ namespace imageprocess
             int Start_Add = 336;
             int End_Add = 336 + (int)byte_per_line - 1;
             MessageBox.Show("in the loop");
-            for(double i = 0; i < image_height; i++)
+            for(double z = 0; z < image_height; z++)
             {
                 for (int j= 0;j < 4; j++){
 
@@ -157,9 +157,17 @@ namespace imageprocess
 
                 }
             }               // End of for loop of height
-            
+
+
+            writefile(Color_K,"color_k.txt");
+            writefile(Color_C, "color_C.txt");
+            writefile(Color_Y, "color_Y.txt");
+            writefile(Color_M, "color_M.txt");
+
+
             MessageBox.Show("End of Loop");
-            double[] Color_RGB = new double[size];
+            int new_size = 3 * size;
+            double[] Color_RGB = new double[new_size];
             double[] Color_G = new double[size];
             double[] Color_B = new double[size];
 
@@ -168,10 +176,12 @@ namespace imageprocess
              G = 255 * ( 1 - M ) * ( 1 - K )
              B = 255 * ( 1 - Y ) * ( 1 - k )
              */
+            textBox5.Text = new_size.ToString();
             int i = 0;
             MessageBox.Show("Starting the conversion");
-            while(i< 3 * size)
+            while(i< new_size)
             {
+                
                 float fcolor_c = (float)Convert.ToDouble(Color_C[i]);
                 float fcolor_k = (float)Convert.ToDouble(Color_K[i]);
                 float fcolor_m = (float)Convert.ToDouble(Color_M[i]);
@@ -181,16 +191,28 @@ namespace imageprocess
                 Color_RGB[i+1] = 255 * (1.0 - (fcolor_m)) * (1.0 - (fcolor_k));
                 Color_RGB[i+2] = 255 * (1.0 - (fcolor_y)) * (1.0 - (fcolor_k));
                 i+=3;
+                textBox5.Text = i.ToString();
             }
             MessageBox.Show("R G B created");
-            Bitmap img = GetDataPicture(600,(int)image_height,Color_RGB);
+            Bitmap img = new Bitmap(size, size);
+            img = GetDataPicture(600, 450, Color_RGB);
+            MessageBox.Show("About to create RGB Image");
             output_image.Image = img;
+        }
+        private void writefile(String[] array ,String Filename)
+        {
+            File.WriteAllLines(Filename,array);
+            using (StreamReader sr = new StreamReader(Filename))
+            {
+                string res = sr.ReadToEnd();
+            }
         }
 
         public Bitmap GetDataPicture(int w, int h, double[] data)
         {
+            MessageBox.Show("in Get data Picture");
             Bitmap pic = new Bitmap(w, h, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-
+            MessageBox.Show("Going in loop");
             for (int x = 0; x < w; x++)
             {
                 for (int y = 0; y < h; y++)
@@ -204,11 +226,16 @@ namespace imageprocess
                     pic.SetPixel(x, y, c);
                 }
             }
-
+            MessageBox.Show("Coming out of loop");
             return pic;
         }
 
-      
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
 
 
 

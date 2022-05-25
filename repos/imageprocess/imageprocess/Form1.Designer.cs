@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.fileOpenBtn = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -37,11 +36,8 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.output_image = new System.Windows.Forms.PictureBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.output_image)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,57 +114,31 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Image width";
             // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(49, 186);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(234, 33);
-            this.textBox5.TabIndex = 8;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(451, 186);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(588, 33);
-            this.textBox6.TabIndex = 9;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(739, 285);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(324, 443);
-            this.textBox7.TabIndex = 10;
-            // 
             // output_image
             // 
-            this.output_image.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.output_image.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("output_image.BackgroundImage")));
-            this.output_image.Location = new System.Drawing.Point(49, 347);
+            this.output_image.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.output_image.Location = new System.Drawing.Point(49, 248);
             this.output_image.Name = "output_image";
-            this.output_image.Size = new System.Drawing.Size(460, 381);
+            this.output_image.Size = new System.Drawing.Size(955, 475);
             this.output_image.TabIndex = 11;
             this.output_image.TabStop = false;
             // 
-            // textBox8
+            // textBox5
             // 
-            this.textBox8.Location = new System.Drawing.Point(49, 255);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(443, 27);
-            this.textBox8.TabIndex = 12;
+            this.textBox5.Location = new System.Drawing.Point(757, 152);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox5.Size = new System.Drawing.Size(168, 27);
+            this.textBox5.TabIndex = 12;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 788);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.output_image);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.output_image);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox3);
@@ -180,6 +150,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.output_image)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -196,10 +167,7 @@
         private TextBox textBox3;
         private TextBox textBox4;
         private Label label2;
-        private TextBox textBox5;
-        private TextBox textBox6;
-        private TextBox textBox7;
         private PictureBox output_image;
-        private TextBox textBox8;
+        private TextBox textBox5;
     }
 }

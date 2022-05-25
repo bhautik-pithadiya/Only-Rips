@@ -33,3 +33,21 @@ D:\Visual Repo\New folder\repos\imageprocess\imageprocess\obj\Debug\net6.0-windo
 D:\Visual Repo\New folder\repos\imageprocess\imageprocess\obj\Debug\net6.0-windows\imageprocess.genruntimeconfig.cache
 D:\Visual Repo\New folder\repos\imageprocess\imageprocess\obj\Debug\net6.0-windows\ref\imageprocess.dll
 D:\Visual Repo\New folder\repos\imageprocess\imageprocess\obj\Debug\net6.0-windows\imageprocess.Properties.Resources.resources
+M:\_00_ # Projects & git\Image Processing Mehta\only_rips_master\Only-Rips\repos\imageprocess\imageprocess\obj\Debug\net6.0-windows\imageprocess.csproj.AssemblyReference.cache
+M:\_00_ # Projects & git\Image Processing Mehta\only_rips_master\Only-Rips\repos\imageprocess\imageprocess\obj\Debug\net6.0-windows\imageprocess.Form1.resources
+M:\_00_ # Projects & git\Image Processing Mehta\only_rips_master\Only-Rips\repos\imageprocess\imageprocess\obj\Debug\net6.0-windows\imageprocess.Properties.Resources.resources
+M:\_00_ # Projects & git\Image Processing Mehta\only_rips_master\Only-Rips\repos\imageprocess\imageprocess\obj\Debug\net6.0-windows\imageprocess.csproj.GenerateResource.cache
+M:\_00_ # Projects & git\Image Processing Mehta\only_rips_master\Only-Rips\repos\imageprocess\imageprocess\obj\Debug\net6.0-windows\imageprocess.GeneratedMSBuildEditorConfig.editorconfig
+M:\_00_ # Projects & git\Image Processing Mehta\only_rips_master\Only-Rips\repos\imageprocess\imageprocess\obj\Debug\net6.0-windows\imageprocess.AssemblyInfoInputs.cache
+M:\_00_ # Projects & git\Image Processing Mehta\only_rips_master\Only-Rips\repos\imageprocess\imageprocess\obj\Debug\net6.0-windows\imageprocess.AssemblyInfo.cs
+M:\_00_ # Projects & git\Image Processing Mehta\only_rips_master\Only-Rips\repos\imageprocess\imageprocess\obj\Debug\net6.0-windows\imageprocess.csproj.CoreCompileInputs.cache
+M:\_00_ # Projects & git\Image Processing Mehta\only_rips_master\Only-Rips\repos\imageprocess\imageprocess\obj\Debug\net6.0-windows\imageprocess.dll
+M:\_00_ # Projects & git\Image Processing Mehta\only_rips_master\Only-Rips\repos\imageprocess\imageprocess\obj\Debug\net6.0-windows\refint\imageprocess.dll
+M:\_00_ # Projects & git\Image Processing Mehta\only_rips_master\Only-Rips\repos\imageprocess\imageprocess\obj\Debug\net6.0-windows\imageprocess.pdb
+M:\_00_ # Projects & git\Image Processing Mehta\only_rips_master\Only-Rips\repos\imageprocess\imageprocess\bin\Debug\net6.0-windows\imageprocess.exe
+M:\_00_ # Projects & git\Image Processing Mehta\only_rips_master\Only-Rips\repos\imageprocess\imageprocess\bin\Debug\net6.0-windows\imageprocess.deps.json
+M:\_00_ # Projects & git\Image Processing Mehta\only_rips_master\Only-Rips\repos\imageprocess\imageprocess\bin\Debug\net6.0-windows\imageprocess.runtimeconfig.json
+M:\_00_ # Projects & git\Image Processing Mehta\only_rips_master\Only-Rips\repos\imageprocess\imageprocess\bin\Debug\net6.0-windows\imageprocess.dll
+M:\_00_ # Projects & git\Image Processing Mehta\only_rips_master\Only-Rips\repos\imageprocess\imageprocess\bin\Debug\net6.0-windows\imageprocess.pdb
+M:\_00_ # Projects & git\Image Processing Mehta\only_rips_master\Only-Rips\repos\imageprocess\imageprocess\obj\Debug\net6.0-windows\imageprocess.genruntimeconfig.cache
+M:\_00_ # Projects & git\Image Processing Mehta\only_rips_master\Only-Rips\repos\imageprocess\imageprocess\obj\Debug\net6.0-windows\ref\imageprocess.dll
