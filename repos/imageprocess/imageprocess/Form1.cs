@@ -58,7 +58,8 @@ namespace imageprocess
 
                 BinaryReader br = new BinaryReader(File.OpenRead(filename));
 
-
+                //44237136
+                //273936
                 byte[] byt = new byte[273936];
                 byte[] imgaray = new byte[273936];
                 
@@ -90,7 +91,7 @@ namespace imageprocess
 
 
                 textBox4.Text = image_width.ToString();
-                Storing_Img_Data(byte_per_line, image_height,imgaray);
+                Storing_Img_Data(byte_per_line,image_width, image_height,imgaray);
                 br.Close();
             }
             catch (Exception ex)
@@ -100,10 +101,10 @@ namespace imageprocess
             
         }
         
-        private void Storing_Img_Data(uint byte_per_line, uint image_height, byte[] img_array)
+        private void Storing_Img_Data(uint byte_per_line,uint image_width, uint image_height, byte[] img_array)
         {
             MessageBox.Show("in the function");
-            int size = (int)(byte_per_line * image_height);
+            int size = (int)(image_width * image_height);
 
             String[] Color_K = new String[size];
             String[] Color_C = new String[size]; 
@@ -117,7 +118,7 @@ namespace imageprocess
             int Start_Add = 336;
             int End_Add = 336 + (int)byte_per_line - 1;
             MessageBox.Show("in the loop");
-            for(double i = 0; i < image_height; i++)
+            for(double z = 0; z < image_height; z++)
             {
                 for (int j= 0;j < 4; j++){
 
@@ -157,9 +158,19 @@ namespace imageprocess
 
                 }
             }               // End of for loop of height
-            
             MessageBox.Show("End of Loop");
-            double[] Color_RGB = new double[size];
+
+
+            
+            writefile(Color_C, "D:/Visual Repo/New folder/repos/imageprocess/imageprocess/data/Color_C.txt");
+            writefile(Color_Y, "D:/Visual Repo/New folder/repos/imageprocess/imageprocess/data/Color_Y.txt");
+            writefile(Color_M, "D:/Visual Repo/New folder/repos/imageprocess/imageprocess/data/Color_M.txt");
+            writefile(Color_K, "D:/Visual Repo/New folder/repos/imageprocess/imageprocess/data/Color_K.txt");
+            
+
+
+            int new_size = 3 * size;
+            double[] Color_R = new double[size];
             double[] Color_G = new double[size];
             double[] Color_B = new double[size];
 
@@ -168,47 +179,86 @@ namespace imageprocess
              G = 255 * ( 1 - M ) * ( 1 - K )
              B = 255 * ( 1 - Y ) * ( 1 - k )
              */
+            textBox5.Text = new_size.ToString();
             int i = 0;
+            int index = 0;
             MessageBox.Show("Starting the conversion");
-            while(i< 3 * size)
+            while(i< size)
             {
+                
                 float fcolor_c = (float)Convert.ToDouble(Color_C[i]);
                 float fcolor_k = (float)Convert.ToDouble(Color_K[i]);
                 float fcolor_m = (float)Convert.ToDouble(Color_M[i]);
                 float fcolor_y = (float)Convert.ToDouble(Color_Y[i]);
-
-                Color_RGB[i] = 255 * (1.0 - (fcolor_c)) * (1.0 - (fcolor_k));
-                Color_RGB[i+1] = 255 * (1.0 - (fcolor_m)) * (1.0 - (fcolor_k));
-                Color_RGB[i+2] = 255 * (1.0 - (fcolor_y)) * (1.0 - (fcolor_k));
+                
+                Color_R[i] = 255 * (1.0 - (fcolor_c)) * (1.0 - (fcolor_k));
+                Color_G[i] = 255 * (1.0 - (fcolor_m)) * (1.0 - (fcolor_k));
+                Color_B[i] = 255 * (1.0 - (fcolor_y)) * (1.0 - (fcolor_k));
                 i+=3;
+                index++;
+                //textBox5.Text = i.ToString();
             }
             MessageBox.Show("R G B created");
-            Bitmap img = GetDataPicture(600,(int)image_height,Color_RGB);
+            Bitmap img = new Bitmap((int)image_width,(int)image_height );
+            img = GetDataPicture((int)image_width, (int)image_height, Color_R, Color_G, Color_B);
+            MessageBox.Show("About to create RGB Image");
+            
             output_image.Image = img;
+            img.Save(@"D:/Visual Repo/New folder/repos/imageprocess/imageprocess/data/final.png");
+            
         }
 
-        public Bitmap GetDataPicture(int w, int h, double[] data)
+        private void writefile(String[] array, String Filename)
         {
+            MessageBox.Show("in the write file function");
+            File.WriteAllLines(Filename, array);
+            using (StreamReader sr = new StreamReader(Filename))
+            {
+                string res = sr.ReadToEnd();
+            }
+            MessageBox.Show("out of  the write file function");
+        }
+
+        public Bitmap GetDataPicture(int w, int h, double[] Color_R, double[] Color_G,double[] Color_B)
+        {
+            MessageBox.Show(h.ToString());
+            MessageBox.Show("in Get data Picture");
             Bitmap pic = new Bitmap(w, h, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
+            MessageBox.Show("Going in loop");
+            int arrayIndex = 0;
 
             for (int x = 0; x < w; x++)
             {
                 for (int y = 0; y < h; y++)
                 {
-                    int arrayIndex = y * w + x;
+                   
                     Color c = Color.FromArgb(
-                       (int)data[arrayIndex],
-                       (int)data[arrayIndex + 1],
-                       (int)data[arrayIndex + 2]
+                       (int)Color_R[arrayIndex],
+                       (int)Color_G[arrayIndex],
+                       (int)Color_B[arrayIndex]
                     );
+                    arrayIndex++;
+                    //textBox5.Text = arrayIndex.ToString();
                     pic.SetPixel(x, y, c);
                 }
+                //textBox6.Text = x.ToString();
             }
-
+ 
+            MessageBox.Show("Coming out of loop");
             return pic;
         }
 
-      
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
 
 
 

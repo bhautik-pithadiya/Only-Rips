@@ -15,3 +15,4 @@ D:\Visual Repo\New folder\repos\imageprocess\imageprocess\obj\Release\net6.0-win
 D:\Visual Repo\New folder\repos\imageprocess\imageprocess\obj\Release\net6.0-windows\imageprocess.pdb
 D:\Visual Repo\New folder\repos\imageprocess\imageprocess\obj\Release\net6.0-windows\imageprocess.genruntimeconfig.cache
 D:\Visual Repo\New folder\repos\imageprocess\imageprocess\obj\Release\net6.0-windows\ref\imageprocess.dll
+D:\Visual Repo\New folder\repos\imageprocess\imageprocess\obj\Release\net6.0-windows\imageprocess.Properties.Resources.resources
